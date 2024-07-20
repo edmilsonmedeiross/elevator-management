@@ -9,7 +9,7 @@ namespace ElevatorManagementAPI.Api.Controllers
     [HttpGet]
     public IActionResult Get()
     {
-      return Ok("Hello World test");
+      return Ok("Hello World test!!!");
     }
   }
 }

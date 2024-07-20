@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "6UwgrvDifuEmOeqmgV3JnwWvMg1vgcwnO9st4Fv3cTI=",
+  "Source": "ElevatorManagementAPI.Api",
+  "BasePath": "_content/ElevatorManagementAPI.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -1,0 +1,17 @@
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Application/bin/Debug/net8.0/ElevatorManagementAPI.Application.deps.json
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Application/bin/Debug/net8.0/ElevatorManagementAPI.Application.dll
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Application/bin/Debug/net8.0/ElevatorManagementAPI.Application.pdb
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Application/bin/Debug/net8.0/ElevatorManagementAPI.Domain.dll
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Application/bin/Debug/net8.0/ElevatorManagementAPI.Infrastructure.dll
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Application/bin/Debug/net8.0/ElevatorManagementAPI.Domain.pdb
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Application/bin/Debug/net8.0/ElevatorManagementAPI.Infrastructure.pdb
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Application/obj/Debug/net8.0/ElevatorManagementAPI.Application.csproj.AssemblyReference.cache
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Application/obj/Debug/net8.0/ElevatorManagementAPI.Application.GeneratedMSBuildEditorConfig.editorconfig
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Application/obj/Debug/net8.0/ElevatorManagementAPI.Application.AssemblyInfoInputs.cache
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Application/obj/Debug/net8.0/ElevatorManagementAPI.Application.AssemblyInfo.cs
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Application/obj/Debug/net8.0/ElevatorManagementAPI.Application.csproj.CoreCompileInputs.cache
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Application/obj/Debug/net8.0/ElevatorManagementAPI.Application.csproj.CopyComplete
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Application/obj/Debug/net8.0/ElevatorManagementAPI.Application.dll
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Application/obj/Debug/net8.0/refint/ElevatorManagementAPI.Application.dll
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Application/obj/Debug/net8.0/ElevatorManagementAPI.Application.pdb
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Application/obj/Debug/net8.0/ref/ElevatorManagementAPI.Application.dll

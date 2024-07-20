@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../buildMultiTargeting/ElevatorManagementAPI.Api.props" />
+</Project>

@@ -1,0 +1,15 @@
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Infrastructure/bin/Debug/net8.0/ElevatorManagementAPI.Infrastructure.deps.json
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Infrastructure/bin/Debug/net8.0/ElevatorManagementAPI.Infrastructure.dll
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Infrastructure/bin/Debug/net8.0/ElevatorManagementAPI.Infrastructure.pdb
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Infrastructure/bin/Debug/net8.0/ElevatorManagementAPI.Domain.dll
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Infrastructure/bin/Debug/net8.0/ElevatorManagementAPI.Domain.pdb
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Infrastructure/obj/Debug/net8.0/ElevatorManagementAPI.Infrastructure.csproj.AssemblyReference.cache
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Infrastructure/obj/Debug/net8.0/ElevatorManagementAPI.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Infrastructure/obj/Debug/net8.0/ElevatorManagementAPI.Infrastructure.AssemblyInfoInputs.cache
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Infrastructure/obj/Debug/net8.0/ElevatorManagementAPI.Infrastructure.AssemblyInfo.cs
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Infrastructure/obj/Debug/net8.0/ElevatorManagementAPI.Infrastructure.csproj.CoreCompileInputs.cache
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Infrastructure/obj/Debug/net8.0/ElevatorManagementAPI.Infrastructure.csproj.CopyComplete
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Infrastructure/obj/Debug/net8.0/ElevatorManagementAPI.Infrastructure.dll
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Infrastructure/obj/Debug/net8.0/refint/ElevatorManagementAPI.Infrastructure.dll
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Infrastructure/obj/Debug/net8.0/ElevatorManagementAPI.Infrastructure.pdb
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Infrastructure/obj/Debug/net8.0/ref/ElevatorManagementAPI.Infrastructure.dll

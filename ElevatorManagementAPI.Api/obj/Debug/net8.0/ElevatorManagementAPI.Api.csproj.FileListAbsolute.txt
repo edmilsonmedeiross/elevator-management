@@ -27,3 +27,4 @@
 /home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Api/obj/Debug/net8.0/ElevatorManagementAPI.Api.pdb
 /home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Api/obj/Debug/net8.0/ElevatorManagementAPI.Api.genruntimeconfig.cache
 /home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Api/obj/Debug/net8.0/ref/ElevatorManagementAPI.Api.dll
+/home/eddie/projects/elevator-management/ElevatorManagementAPI/ElevatorManagementAPI.Api/obj/Debug/net8.0/ElevatorManagementAPI.Api.sourcelink.json

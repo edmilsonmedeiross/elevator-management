@@ -1,10 +1,7 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElevatorManagementAPI", "ElevatorManagementAPI.csproj", "{64FB49ED-1527-4F93-8048-0F44E9AA08A3}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElevatorManagementAPI.Domain", "ElevatorManagementAPI.Domain\ElevatorManagementAPI.Domain.csproj", "{795B7061-CA6D-4693-B38A-8A88679E2CFC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElevatorManagementAPI.Application", "ElevatorManagementAPI.Application\ElevatorManagementAPI.Application.csproj", "{B5C46357-6096-4380-9B63-4394810A23E6}"
@@ -19,10 +16,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{64FB49ED-1527-4F93-8048-0F44E9AA08A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{64FB49ED-1527-4F93-8048-0F44E9AA08A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{64FB49ED-1527-4F93-8048-0F44E9AA08A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{64FB49ED-1527-4F93-8048-0F44E9AA08A3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{795B7061-CA6D-4693-B38A-8A88679E2CFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{795B7061-CA6D-4693-B38A-8A88679E2CFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{795B7061-CA6D-4693-B38A-8A88679E2CFC}.Release|Any CPU.ActiveCfg = Release|Any CPU

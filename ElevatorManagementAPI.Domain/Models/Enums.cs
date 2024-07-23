@@ -1,4 +1,4 @@
-﻿namespace ElevatorManagementAPI.Domain.Entities
+﻿namespace ElevatorManagementAPI.Domain.Models
 {
   public enum VisitType
   {
@@ -29,5 +29,11 @@
     Master,
     Employee,
     Operational
+  }
+
+  public enum PendencyStatus
+  {
+    Open,
+    Closed
   }
 }

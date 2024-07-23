@@ -79,6 +79,5 @@ bin/
 obj/
 **/bin/
 **/obj/
-ElevatorManagementAPI.Domain/obj
 Debug/
 Release/

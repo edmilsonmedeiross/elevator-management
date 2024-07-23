@@ -1,0 +1,84 @@
+# Visual Studio
+.vs/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files
+*.rsuser
+*.rsedb
+
+# Auto-generated files
+Generated/**
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# StyleCop
+StyleCopReport.xml
+
+# Files built by Visual Studio
+*.build.csdef
+*.csx
+*.vsix
+*.nupkg
+*.snupkg
+*.ps1
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+
+# NUnit
+*.VisualState.xml
+TestResult.xml
+
+# Build directories (Visual Studio can handle these)
+Build/
+[Bb]uild[Ll]ogs/
+
+# Web projects
+node_modules/
+bower_components/
+jspm_packages/
+wwwroot/lib/
+wwwroot/node_modules/
+wwwroot/bower_components/
+
+# Umbraco stuff
+**/media/
+**/App_Data/
+
+# .NET Core Directory
+project.lock.json
+project.fragment.lock.json
+artifacts/
+bin/
+obj/
+**/bin/
+**/obj/
+ElevatorManagementAPI.Domain/obj
+Debug/
+Release/

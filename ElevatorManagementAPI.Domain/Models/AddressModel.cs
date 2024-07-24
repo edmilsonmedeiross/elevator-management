@@ -1,6 +1,8 @@
-﻿namespace ElevatorManagementAPI.Domain.Models;
+﻿using System.Text.Json.Serialization;
 
-public class Address
+namespace ElevatorManagementAPI.Domain.Models;
+
+public class AddressModel
 {
   public long Id { get; set; }
   public required string Street { get; set; }
@@ -9,6 +11,12 @@ public class Address
   public required string City { get; set; }
   public required string State { get; set; }
   public required string ZipCode { get; set; }
+  [JsonIgnore]
+  public long? BuildingId { get; set; }
+  [JsonIgnore]
   public long TenantId { get; set; }
-  public Tenants? Tenant { get; set; }
+  [JsonIgnore]
+  public virtual required TenantModel Tenant { get; set; }
+  [JsonIgnore]
+  public virtual required BuildingModel Building { get; set; }
 }

@@ -18,6 +18,12 @@
     Running
   }
 
+  public enum ElevatorType
+  {
+    Social,
+    Service,
+  }
+
   public enum DocumentType
   {
     RG,
@@ -35,5 +41,11 @@
   {
     Open,
     Closed
+  }
+
+  public enum SubscriptionStatus
+  {
+    Active,
+    Inactive
   }
 }

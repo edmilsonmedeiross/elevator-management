@@ -1,4 +1,4 @@
-using ElevatorManagementAPI.Api.Datas;
+using ElevatorManagementAPI.Api.Data;
 using ElevatorManagementAPI.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,7 +15,7 @@ builder.Services.AddSwaggerGen(x =>
 builder.Services.AddControllers();
 
 // builder.Services.AddSqlite<AppDbContext>("Data Source=ElevatorManagementAPI.db");
-builder.Services.AddDbContext<AppDbContextS>(
+builder.Services.AddDbContext<AppDbContext>(
   options =>
     options.UseSqlite(
       "Data Source=ElevatorManagementAPI.db"

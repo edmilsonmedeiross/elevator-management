@@ -87,11 +87,6 @@ namespace ElevatorManagementAPI.Api.Data.Mappings
         .HasColumnType("varchar(100)");
 
       builder
-        .Property(v => v.ElevatorId)
-        .IsRequired()
-        .HasColumnType("varchar(100)");
-
-      builder
         .Property(v => v.BuildingId)
         .IsRequired()
         .HasColumnType("varchar(100)");
@@ -117,6 +112,37 @@ namespace ElevatorManagementAPI.Api.Data.Mappings
         .HasOne(v => v.Tenant)
         .WithMany()
         .HasForeignKey(v => v.TenantId);
+
+      builder
+        .HasMany(e => e.Elevators)
+        .WithMany(v => v.Visits)
+        .UsingEntity<
+          Dictionary<string, object>
+        >(
+          "VisitsElevators",
+          j =>
+            j.HasOne<ElevatorModel>()
+              .WithMany()
+              .HasForeignKey(
+                "ElevatorId"
+              )
+              .HasConstraintName(
+                "FK_VisitElevators_Elevators_ElevatorModelId"
+              )
+              .OnDelete(
+                DeleteBehavior.Cascade
+              ),
+          j =>
+            j.HasOne<VisitModel>()
+              .WithMany()
+              .HasForeignKey("VisitId")
+              .HasConstraintName(
+                "FK_VisitElevators_Visits_VisitModelId"
+              )
+              .OnDelete(
+                DeleteBehavior.Cascade
+              )
+        );
     }
   }
 }

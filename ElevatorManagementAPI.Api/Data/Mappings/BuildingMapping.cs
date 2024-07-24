@@ -67,9 +67,9 @@ namespace ElevatorManagementAPI.Api.Data.Mappings
 
       builder
         .HasOne(b => b.Assignee)
-        .WithOne()
-        .HasForeignKey<BuildingModel>(
-          b => b.AssigneeId
+        .WithMany(a => a.Buildings)
+        .HasForeignKey(b =>
+          b.AssigneeId
         );
     }
   }

@@ -21,15 +21,11 @@ public class VisitModel
     DateTime.UtcNow;
   public DateTime UpdatedAt { get; set; }
   public long UserId { get; set; }
-  public long ElevatorId { get; set; }
   public long BuildingId { get; set; }
   public long TenantId { get; set; }
 
   [JsonIgnore]
   public virtual required UserModel User { get; set; }
-
-  [JsonIgnore]
-  public virtual required ICollection<ElevatorModel> Elevator { get; set; }
 
   [JsonIgnore]
   public virtual required BuildingModel Building { get; set; }

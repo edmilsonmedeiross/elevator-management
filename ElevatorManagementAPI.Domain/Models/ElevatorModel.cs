@@ -44,5 +44,5 @@ public class ElevatorModel
   public virtual ICollection<PendencyModel>? Pendencies { get; set; }
 
   [JsonIgnore]
-  public virtual ICollection<VisitElevatorModel>? VisitElevators { get; set; }
+  public virtual ICollection<VisitModel>? Visits { get; set; }
 }

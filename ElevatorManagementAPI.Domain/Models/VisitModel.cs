@@ -38,5 +38,5 @@ public class VisitModel
   public virtual required TenantModel Tenant { get; set; }
 
   [JsonIgnore]
-  public virtual required ICollection<VisitElevatorModel> VisitElevators { get; set; }
+  public virtual required ICollection<ElevatorModel> Elevators { get; set; }
 }

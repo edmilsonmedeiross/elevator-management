@@ -81,3 +81,7 @@ obj/
 **/obj/
 Debug/
 Release/
+
+# Ignore cache files
+*.cache
+

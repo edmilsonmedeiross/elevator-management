@@ -25,4 +25,6 @@ public class UserModel
   public virtual ICollection<ElevatorModel>? Elevators { get; set; }
 
   public virtual UserModel? InvitedUser { get; set; }
+
+  public virtual ICollection<PendencyModel>? Pendencies { get; set; }
 }

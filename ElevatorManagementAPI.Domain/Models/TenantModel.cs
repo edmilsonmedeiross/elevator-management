@@ -18,4 +18,5 @@ public class TenantModel
   public virtual ICollection<SubscriptionModel>? Subscriptions { get; set; }
   public required virtual AddressModel Address { get; set; }
   public virtual ICollection<ElevatorModel>? Elevators { get; set; }
+  public virtual ICollection<PendencyModel>? Pendencies { get; set; }
 }

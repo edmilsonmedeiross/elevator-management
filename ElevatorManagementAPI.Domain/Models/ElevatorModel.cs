@@ -38,4 +38,6 @@ public class ElevatorModel
 
   [JsonIgnore]
   public virtual UserModel? User { get; set; }
+  [JsonIgnore]
+  public virtual ICollection<PendencyModel>? Pendencies { get; set; }
 }

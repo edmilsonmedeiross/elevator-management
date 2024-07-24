@@ -22,5 +22,7 @@ public class UserModel
 
   public virtual ICollection<BuildingModel>? Buildings { get; set; }
 
+  public virtual ICollection<ElevatorModel>? Elevators { get; set; }
+
   public virtual UserModel? InvitedUser { get; set; }
 }

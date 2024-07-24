@@ -17,4 +17,5 @@ public class TenantModel
   public virtual ICollection<AssigneeModel>? Assignees { get; set; }
   public virtual ICollection<SubscriptionModel>? Subscriptions { get; set; }
   public required virtual AddressModel Address { get; set; }
+  public virtual ICollection<ElevatorModel>? Elevators { get; set; }
 }

@@ -25,12 +25,17 @@ public class ElevatorModel
   public string? DoorOperator { get; set; }
   public DateTime CreatedAt { get; set; } = DateTime.Now;
   public DateTime UpdatedAt { get; set; }
+  public DateTime? MaintenedAt { get; set; }
   public required long BuildingId { get; set; }
   public required long TenantId { get; set; }
+  public long? UserId { get; set; }
 
   [JsonIgnore]
   public virtual required BuildingModel Building { get; set; }
 
   [JsonIgnore]
   public virtual required TenantModel Tenant { get; set; }
+
+  [JsonIgnore]
+  public virtual UserModel? User { get; set; }
 }

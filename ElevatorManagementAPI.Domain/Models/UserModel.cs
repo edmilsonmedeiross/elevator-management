@@ -16,16 +16,8 @@ public class UserModel
     DateTime.Now;
   public DateTime UpdatedAt { get; set; }
   public required long TenantId { get; set; }
-  public long? InvitedById { get; set; }
-  public UserModel? InvitedBy { get; set; }
-
   public virtual required TenantModel Tenant { get; set; }
-
   public virtual ICollection<BuildingModel>? Buildings { get; set; }
-
   public virtual ICollection<ElevatorModel>? Elevators { get; set; }
-
-  public virtual UserModel? InvitedUser { get; set; }
-
   public virtual ICollection<PendencyModel>? Pendencies { get; set; }
 }

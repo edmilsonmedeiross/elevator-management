@@ -8,5 +8,5 @@ public class AppDbContextS : DbContext
   public AppDbContextS(DbContextOptions<AppDbContextS> options)
     : base(options) { }
 
-  public DbSet<Tenants> Tenants => Set<Tenants>();
+  public DbSet<TenantModel> Tenants => Set<TenantModel>();
 }

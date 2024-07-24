@@ -3,6 +3,14 @@ using ElevatorManagementAPI.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(x =>
+{
+  x.CustomSchemaIds(n => n.FullName);
+});
+
+// Add services to the container.
 builder.Services.AddControllers();
 
 // builder.Services.AddSqlite<AppDbContext>("Data Source=ElevatorManagementAPI.db");
@@ -11,6 +19,9 @@ builder.Services.AddDbContext<AppDbContextS>(options =>
 );
 
 var app = builder.Build();
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseRouting();
 

@@ -11,5 +11,10 @@ public class TenantModel
   public string? CustomerId { get; set; }
   public string? TenantColor { get; set; }
   public string? TenantLogo { get; set; }
-
+  public required long AddressId { get; set; }
+  public virtual ICollection<UserModel>? Users { get; set; }
+  public virtual ICollection<BuildingModel>? Buildings { get; set; }
+  public virtual ICollection<AssigneeModel>? Assignees { get; set; }
+  public virtual ICollection<SubscriptionModel>? Subscriptions { get; set; }
+  public required virtual AddressModel Address { get; set; }
 }

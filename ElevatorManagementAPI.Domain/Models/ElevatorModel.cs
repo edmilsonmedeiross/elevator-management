@@ -23,7 +23,8 @@ public class ElevatorModel
   public string? Buttom { get; set; }
   public string? OilType { get; set; }
   public string? DoorOperator { get; set; }
-  public DateTime CreatedAt { get; set; } = DateTime.Now;
+  public DateTime CreatedAt { get; set; } =
+    DateTime.Now;
   public DateTime UpdatedAt { get; set; }
   public DateTime? MaintenedAt { get; set; }
   public required long BuildingId { get; set; }
@@ -38,6 +39,7 @@ public class ElevatorModel
 
   [JsonIgnore]
   public virtual UserModel? User { get; set; }
+
   [JsonIgnore]
   public virtual ICollection<PendencyModel>? Pendencies { get; set; }
 }

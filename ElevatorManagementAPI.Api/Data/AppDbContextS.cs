@@ -5,7 +5,9 @@ namespace ElevatorManagementAPI.Api.Data;
 
 public class AppDbContext : DbContext
 {
-  public AppDbContext(DbContextOptions<AppDbContext> options)
+  public AppDbContext(
+    DbContextOptions<AppDbContext> options
+  )
     : base(options) { }
 
   public DbSet<AddressModel> Address { get; set; }
@@ -19,7 +21,9 @@ public class AppDbContext : DbContext
   public DbSet<VisitElevatorModel> VisitsElevators { get; set; }
   public DbSet<VisitModel> Visits { get; set; }
 
-  protected override void OnModelCreating(ModelBuilder modelBuilder)
+  protected override void OnModelCreating(
+    ModelBuilder modelBuilder
+  )
   {
     modelBuilder.ApplyConfiguration();
   }

@@ -136,6 +136,39 @@ namespace ElevatorManagementAPI.Api.Data.Mappings
         .HasOne(e => e.User)
         .WithMany(u => u.Elevators)
         .HasForeignKey(e => e.UserId);
+
+      builder
+        .HasMany(e => e.Pendencies)
+        .WithOne(p => p.Elevator)
+        .HasForeignKey(p =>
+          p.ElevatorId
+        );
+
+      builder
+        .HasMany(e => e.Visits)
+        .WithMany(v => v.Elevators)
+        .UsingEntity<
+          Dictionary<string, object>
+        >(
+          "ElevatorVisit",
+          j =>
+            j.HasOne<VisitModel>()
+              .WithMany()
+              .HasForeignKey("VisitId"),
+          j =>
+            j.HasOne<ElevatorModel>()
+              .WithMany()
+              .HasForeignKey(
+                "ElevatorId"
+              ),
+          j =>
+          {
+            j.HasKey(
+              "ElevatorId",
+              "VisitId"
+            );
+          }
+        );
     }
   }
 }

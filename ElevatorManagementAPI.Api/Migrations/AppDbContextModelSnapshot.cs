@@ -19,20 +19,19 @@ namespace ElevatorManagementAPI.Api.Migrations
 
             modelBuilder.Entity("ElevatorManagementAPI.Domain.Models.AddressModel", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("TEXT");
 
-                    b.Property<long?>("BuildingId")
-                        .IsRequired()
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<long>("BuildingId1")
-                        .HasColumnType("INTEGER");
+                    b.Property<Guid>("BuildingId")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("City")
                         .IsRequired()
                         .HasColumnType("varchar(100)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime");
 
                     b.Property<string>("District")
                         .IsRequired()
@@ -49,8 +48,11 @@ namespace ElevatorManagementAPI.Api.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(100)");
 
-                    b.Property<long>("TenantId")
-                        .HasColumnType("varchar(100)");
+                    b.Property<Guid>("TenantId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime");
 
                     b.Property<string>("ZipCode")
                         .IsRequired()
@@ -58,45 +60,41 @@ namespace ElevatorManagementAPI.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BuildingId1");
+                    b.HasIndex("BuildingId")
+                        .IsUnique();
 
-                    b.ToTable("Address", (string)null);
+                    b.ToTable("Addresses", (string)null);
                 });
 
             modelBuilder.Entity("ElevatorManagementAPI.Domain.Models.AssigneeModel", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("TEXT");
 
-                    b.Property<long>("BuildingId")
+                    b.Property<Guid>("BuildingId")
                         .HasColumnType("varchar(100)");
 
                     b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+                        .HasColumnType("datetime");
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("Tel")
                         .IsRequired()
-                        .HasMaxLength(20)
                         .HasColumnType("varchar(20)");
 
-                    b.Property<long>("TenantId")
+                    b.Property<Guid>("TenantId")
                         .HasColumnType("varchar(100)");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime");
 
                     b.HasKey("Id");
 
@@ -107,23 +105,21 @@ namespace ElevatorManagementAPI.Api.Migrations
 
             modelBuilder.Entity("ElevatorManagementAPI.Domain.Models.BuildingModel", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<long>("AddressId")
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<long>("AssigneeId")
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
 
+                    b.Property<Guid>("AddressId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("AssigneeId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime");
+
                     b.Property<bool>("IsActive")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValueSql("true");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -133,19 +129,16 @@ namespace ElevatorManagementAPI.Api.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(20)");
 
-                    b.Property<long>("TenantId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<Guid>("TenantId")
                         .HasColumnType("TEXT");
 
-                    b.Property<long?>("UserId")
-                        .HasColumnType("INTEGER");
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime");
+
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AddressId")
-                        .IsUnique();
 
                     b.HasIndex("AssigneeId");
 
@@ -153,17 +146,17 @@ namespace ElevatorManagementAPI.Api.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Building", (string)null);
+                    b.ToTable("Buildings", (string)null);
                 });
 
             modelBuilder.Entity("ElevatorManagementAPI.Domain.Models.ElevatorModel", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("TEXT");
 
-                    b.Property<long>("BuildingId")
-                        .HasColumnType("varchar(100)");
+                    b.Property<Guid>("BuildingId")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Buttom")
                         .HasColumnType("varchar(100)");
@@ -178,9 +171,7 @@ namespace ElevatorManagementAPI.Api.Migrations
                         .HasColumnType("varchar(100)");
 
                     b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+                        .HasColumnType("datetime");
 
                     b.Property<string>("DoorOperator")
                         .HasColumnType("varchar(100)");
@@ -224,18 +215,18 @@ namespace ElevatorManagementAPI.Api.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(100)");
 
-                    b.Property<long>("TenantId")
-                        .HasColumnType("varchar(100)");
+                    b.Property<Guid>("TenantId")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Type")
                         .IsRequired()
                         .HasColumnType("varchar(20)");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime");
 
-                    b.Property<long?>("UserId")
-                        .HasColumnType("INTEGER");
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("TEXT");
 
                     b.Property<int?>("VelocityNum")
                         .HasColumnType("int");
@@ -253,24 +244,22 @@ namespace ElevatorManagementAPI.Api.Migrations
 
             modelBuilder.Entity("ElevatorManagementAPI.Domain.Models.PendencyModel", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("ClosedAt")
                         .HasColumnType("datetime");
 
                     b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+                        .HasColumnType("datetime");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("varchar(200)");
 
-                    b.Property<long>("ElevatorId")
-                        .HasColumnType("varchar(100)");
+                    b.Property<Guid>("ElevatorId")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Picture")
                         .HasColumnType("varchar(100)");
@@ -279,14 +268,14 @@ namespace ElevatorManagementAPI.Api.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(20)");
 
-                    b.Property<long>("TenantId")
-                        .HasColumnType("varchar(100)");
+                    b.Property<Guid>("TenantId")
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime");
 
-                    b.Property<long>("UserId")
-                        .HasColumnType("varchar(100)");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -301,32 +290,28 @@ namespace ElevatorManagementAPI.Api.Migrations
 
             modelBuilder.Entity("ElevatorManagementAPI.Domain.Models.SubscriptionModel", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+                        .HasColumnType("datetime");
 
                     b.Property<bool>("IsActive")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValueSql("false");
+                        .HasColumnType("boolean");
 
-                    b.Property<long>("PlanID")
-                        .HasColumnType("varchar(100)");
+                    b.Property<Guid>("PlanID")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("varchar(20)");
 
-                    b.Property<long>("StripeSubscriptionId")
+                    b.Property<Guid>("StripeSubscriptionId")
                         .HasColumnType("varchar(100)");
 
-                    b.Property<long>("TenantId")
-                        .HasColumnType("varchar(100)");
+                    b.Property<Guid>("TenantId")
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime");
@@ -340,20 +325,18 @@ namespace ElevatorManagementAPI.Api.Migrations
 
             modelBuilder.Entity("ElevatorManagementAPI.Domain.Models.TenantModel", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("TEXT");
 
-                    b.Property<long>("AddressId")
-                        .HasColumnType("varchar(100)");
+                    b.Property<Guid>("AddressId")
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+                        .HasColumnType("datetime");
 
-                    b.Property<string>("CustomerId")
-                        .HasColumnType("varchar(100)");
+                    b.Property<Guid?>("CustomerId")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("DocumentNumber")
                         .IsRequired()
@@ -364,9 +347,7 @@ namespace ElevatorManagementAPI.Api.Migrations
                         .HasColumnType("varchar(100)");
 
                     b.Property<bool>("IsSubActive")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValueSql("false");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -391,14 +372,12 @@ namespace ElevatorManagementAPI.Api.Migrations
 
             modelBuilder.Entity("ElevatorManagementAPI.Domain.Models.UserModel", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+                        .HasColumnType("datetime");
 
                     b.Property<string>("DocumentNumber")
                         .IsRequired()
@@ -413,9 +392,7 @@ namespace ElevatorManagementAPI.Api.Migrations
                         .HasColumnType("varchar(100)");
 
                     b.Property<bool>("IsActive")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValueSql("true");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -436,11 +413,11 @@ namespace ElevatorManagementAPI.Api.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(20)");
 
-                    b.Property<long>("TenantId")
-                        .HasColumnType("varchar(100)");
+                    b.Property<Guid>("TenantId")
+                        .HasColumnType("TEXT");
 
-                    b.Property<long?>("TenantModelId")
-                        .HasColumnType("INTEGER");
+                    b.Property<Guid?>("TenantModelId")
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime");
@@ -456,20 +433,18 @@ namespace ElevatorManagementAPI.Api.Migrations
 
             modelBuilder.Entity("ElevatorManagementAPI.Domain.Models.VisitModel", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("TEXT");
 
-                    b.Property<long>("BuildingId")
-                        .HasColumnType("varchar(100)");
+                    b.Property<Guid>("BuildingId")
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("ClosedAt")
                         .HasColumnType("datetime");
 
                     b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+                        .HasColumnType("datetime");
 
                     b.Property<int?>("CurrentFloor")
                         .HasColumnType("int");
@@ -483,14 +458,10 @@ namespace ElevatorManagementAPI.Api.Migrations
 
                     b.Property<string>("ElevatorStatusPre")
                         .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("varchar(50)")
-                        .HasDefaultValueSql("stopped");
+                        .HasColumnType("varchar(50)");
 
                     b.Property<bool>("IsPassengerStucked")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValueSql("false");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Problem")
                         .IsRequired()
@@ -500,8 +471,8 @@ namespace ElevatorManagementAPI.Api.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(20)");
 
-                    b.Property<long>("TenantId")
-                        .HasColumnType("varchar(100)");
+                    b.Property<Guid>("TenantId")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Type")
                         .IsRequired()
@@ -510,8 +481,8 @@ namespace ElevatorManagementAPI.Api.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime");
 
-                    b.Property<long>("UserId")
-                        .HasColumnType("varchar(100)");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -526,11 +497,11 @@ namespace ElevatorManagementAPI.Api.Migrations
 
             modelBuilder.Entity("VisitsElevators", b =>
                 {
-                    b.Property<long>("ElevatorId")
-                        .HasColumnType("INTEGER");
+                    b.Property<Guid>("ElevatorId")
+                        .HasColumnType("TEXT");
 
-                    b.Property<long>("VisitId")
-                        .HasColumnType("INTEGER");
+                    b.Property<Guid>("VisitId")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("ElevatorId", "VisitId");
 
@@ -542,8 +513,8 @@ namespace ElevatorManagementAPI.Api.Migrations
             modelBuilder.Entity("ElevatorManagementAPI.Domain.Models.AddressModel", b =>
                 {
                     b.HasOne("ElevatorManagementAPI.Domain.Models.BuildingModel", "Building")
-                        .WithMany()
-                        .HasForeignKey("BuildingId1")
+                        .WithOne("Address")
+                        .HasForeignKey("ElevatorManagementAPI.Domain.Models.AddressModel", "BuildingId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -563,12 +534,6 @@ namespace ElevatorManagementAPI.Api.Migrations
 
             modelBuilder.Entity("ElevatorManagementAPI.Domain.Models.BuildingModel", b =>
                 {
-                    b.HasOne("ElevatorManagementAPI.Domain.Models.AddressModel", "Address")
-                        .WithOne()
-                        .HasForeignKey("ElevatorManagementAPI.Domain.Models.BuildingModel", "AddressId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("ElevatorManagementAPI.Domain.Models.AssigneeModel", "Assignee")
                         .WithMany("Buildings")
                         .HasForeignKey("AssigneeId")
@@ -584,8 +549,6 @@ namespace ElevatorManagementAPI.Api.Migrations
                     b.HasOne("ElevatorManagementAPI.Domain.Models.UserModel", "User")
                         .WithMany("Buildings")
                         .HasForeignKey("UserId");
-
-                    b.Navigation("Address");
 
                     b.Navigation("Assignee");
 
@@ -740,6 +703,9 @@ namespace ElevatorManagementAPI.Api.Migrations
 
             modelBuilder.Entity("ElevatorManagementAPI.Domain.Models.BuildingModel", b =>
                 {
+                    b.Navigation("Address")
+                        .IsRequired();
+
                     b.Navigation("Elevators");
                 });
 

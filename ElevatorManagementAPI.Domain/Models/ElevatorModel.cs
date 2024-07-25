@@ -4,7 +4,7 @@ namespace ElevatorManagementAPI.Domain.Models;
 
 public class ElevatorModel
 {
-  public long Id { get; set; }
+  public Guid Id { get; set; }
   public required ElevatorType Type { get; set; }
   public ElevatorStatus? Status { get; set; }
   public string? Technology { get; set; }
@@ -17,8 +17,10 @@ public class ElevatorModel
   public string? Command { get; set; }
   public int? QttCables { get; set; }
   public int? CableGauge { get; set; }
-  public bool? IsHouseMachineLess { get; set; }
-  public bool? IsHouseMachineOnTop { get; set; }
+  public bool? IsHouseMachineLess { get; set; } =
+    false;
+  public bool? IsHouseMachineOnTop { get; set; } =
+    true;
   public string? Ipd { get; set; }
   public string? Buttom { get; set; }
   public string? OilType { get; set; }
@@ -27,9 +29,9 @@ public class ElevatorModel
     DateTime.Now;
   public DateTime UpdatedAt { get; set; }
   public DateTime? MaintenedAt { get; set; }
-  public required long BuildingId { get; set; }
-  public required long TenantId { get; set; }
-  public long? UserId { get; set; }
+  public required Guid BuildingId { get; set; }
+  public required Guid TenantId { get; set; }
+  public Guid? UserId { get; set; }
 
   [JsonIgnore]
   public virtual required BuildingModel Building { get; set; }

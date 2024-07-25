@@ -12,50 +12,49 @@ namespace ElevatorManagementAPI.Api.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Address",
+                name: "Addresses",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
                     Street = table.Column<string>(type: "varchar(100)", nullable: false),
                     Number = table.Column<int>(type: "int", nullable: false),
                     District = table.Column<string>(type: "varchar(100)", nullable: false),
                     City = table.Column<string>(type: "varchar(100)", nullable: false),
                     State = table.Column<string>(type: "varchar(100)", nullable: false),
                     ZipCode = table.Column<string>(type: "varchar(100)", nullable: false),
-                    BuildingId = table.Column<long>(type: "varchar(100)", nullable: false),
-                    TenantId = table.Column<long>(type: "varchar(100)", nullable: false),
-                    BuildingId1 = table.Column<long>(type: "INTEGER", nullable: false)
+                    CreatedAt = table.Column<DateTime>(type: "datetime", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime", nullable: false),
+                    BuildingId = table.Column<Guid>(type: "TEXT", nullable: false),
+                    TenantId = table.Column<Guid>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Address", x => x.Id);
+                    table.PrimaryKey("PK_Addresses", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Tenants",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
                     Name = table.Column<string>(type: "varchar(100)", nullable: false),
                     Email = table.Column<string>(type: "varchar(100)", nullable: false),
                     DocumentNumber = table.Column<string>(type: "varchar(20)", nullable: false),
-                    IsSubActive = table.Column<bool>(type: "boolean", nullable: false, defaultValueSql: "false"),
-                    CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP"),
+                    IsSubActive = table.Column<bool>(type: "boolean", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime", nullable: false),
-                    CustomerId = table.Column<string>(type: "varchar(100)", nullable: true),
+                    CustomerId = table.Column<Guid>(type: "TEXT", nullable: true),
                     TenantColor = table.Column<string>(type: "varchar(20)", nullable: true),
                     TenantLogo = table.Column<string>(type: "varchar(100)", nullable: true),
-                    AddressId = table.Column<long>(type: "varchar(100)", nullable: false)
+                    AddressId = table.Column<Guid>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Tenants", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Tenants_Address_AddressId",
+                        name: "FK_Tenants_Addresses_AddressId",
                         column: x => x.AddressId,
-                        principalTable: "Address",
+                        principalTable: "Addresses",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -64,15 +63,14 @@ namespace ElevatorManagementAPI.Api.Migrations
                 name: "assignees",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
-                    Tel = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: false),
-                    Email = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP"),
-                    UpdatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    BuildingId = table.Column<long>(type: "varchar(100)", nullable: false),
-                    TenantId = table.Column<long>(type: "varchar(100)", nullable: false)
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    Name = table.Column<string>(type: "varchar(100)", nullable: false),
+                    Tel = table.Column<string>(type: "varchar(20)", nullable: false),
+                    Email = table.Column<string>(type: "varchar(100)", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime", nullable: false),
+                    BuildingId = table.Column<Guid>(type: "varchar(100)", nullable: false),
+                    TenantId = table.Column<Guid>(type: "varchar(100)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -89,15 +87,14 @@ namespace ElevatorManagementAPI.Api.Migrations
                 name: "Subscriptions",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    StripeSubscriptionId = table.Column<long>(type: "varchar(100)", nullable: false),
-                    PlanID = table.Column<long>(type: "varchar(100)", nullable: false),
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    StripeSubscriptionId = table.Column<Guid>(type: "varchar(100)", nullable: false),
+                    PlanID = table.Column<Guid>(type: "TEXT", nullable: false),
                     Status = table.Column<string>(type: "varchar(20)", nullable: false),
-                    IsActive = table.Column<bool>(type: "boolean", nullable: false, defaultValueSql: "false"),
-                    CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP"),
+                    IsActive = table.Column<bool>(type: "boolean", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime", nullable: false),
-                    TenantId = table.Column<long>(type: "varchar(100)", nullable: false)
+                    TenantId = table.Column<Guid>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -114,8 +111,7 @@ namespace ElevatorManagementAPI.Api.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
                     Name = table.Column<string>(type: "varchar(100)", nullable: false),
                     DocumentType = table.Column<string>(type: "varchar(20)", nullable: false),
                     DocumentNumber = table.Column<string>(type: "varchar(20)", nullable: false),
@@ -123,12 +119,12 @@ namespace ElevatorManagementAPI.Api.Migrations
                     Password = table.Column<string>(type: "varchar(100)", nullable: false),
                     Role = table.Column<string>(type: "varchar(20)", nullable: false),
                     Tel = table.Column<string>(type: "varchar(20)", nullable: false),
-                    IsActive = table.Column<bool>(type: "boolean", nullable: false, defaultValueSql: "true"),
+                    IsActive = table.Column<bool>(type: "boolean", nullable: false),
                     PasswordChangedAt = table.Column<DateTime>(type: "datetime", nullable: true),
-                    CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP"),
+                    CreatedAt = table.Column<DateTime>(type: "datetime", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime", nullable: false),
-                    TenantId = table.Column<long>(type: "varchar(100)", nullable: false),
-                    TenantModelId = table.Column<long>(type: "INTEGER", nullable: true)
+                    TenantId = table.Column<Guid>(type: "TEXT", nullable: false),
+                    TenantModelId = table.Column<Guid>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -147,43 +143,36 @@ namespace ElevatorManagementAPI.Api.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Building",
+                name: "Buildings",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
                     Name = table.Column<string>(type: "varchar(100)", nullable: false),
-                    IsActive = table.Column<bool>(type: "boolean", nullable: false, defaultValueSql: "true"),
+                    IsActive = table.Column<bool>(type: "boolean", nullable: false),
                     Tel = table.Column<string>(type: "varchar(20)", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    AssigneeId = table.Column<long>(type: "varchar(100)", nullable: false),
-                    AddressId = table.Column<long>(type: "varchar(100)", nullable: false),
-                    TenantId = table.Column<long>(type: "INTEGER", nullable: false),
-                    UserId = table.Column<long>(type: "INTEGER", nullable: true)
+                    CreatedAt = table.Column<DateTime>(type: "datetime", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime", nullable: false),
+                    AssigneeId = table.Column<Guid>(type: "TEXT", nullable: false),
+                    AddressId = table.Column<Guid>(type: "TEXT", nullable: false),
+                    TenantId = table.Column<Guid>(type: "TEXT", nullable: false),
+                    UserId = table.Column<Guid>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Building", x => x.Id);
+                    table.PrimaryKey("PK_Buildings", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Building_Address_AddressId",
-                        column: x => x.AddressId,
-                        principalTable: "Address",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Building_Tenants_TenantId",
+                        name: "FK_Buildings_Tenants_TenantId",
                         column: x => x.TenantId,
                         principalTable: "Tenants",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Building_Users_UserId",
+                        name: "FK_Buildings_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Building_assignees_AssigneeId",
+                        name: "FK_Buildings_assignees_AssigneeId",
                         column: x => x.AssigneeId,
                         principalTable: "assignees",
                         principalColumn: "Id",
@@ -194,8 +183,7 @@ namespace ElevatorManagementAPI.Api.Migrations
                 name: "Elevators",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
                     Type = table.Column<string>(type: "varchar(20)", nullable: false),
                     Status = table.Column<string>(type: "varchar(50)", nullable: false),
                     Technology = table.Column<string>(type: "varchar(100)", nullable: false),
@@ -214,20 +202,20 @@ namespace ElevatorManagementAPI.Api.Migrations
                     Buttom = table.Column<string>(type: "varchar(100)", nullable: true),
                     OilType = table.Column<string>(type: "varchar(100)", nullable: true),
                     DoorOperator = table.Column<string>(type: "varchar(100)", nullable: true),
-                    CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP"),
-                    UpdatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime", nullable: false),
                     MaintenedAt = table.Column<DateTime>(type: "TEXT", nullable: true),
-                    BuildingId = table.Column<long>(type: "varchar(100)", nullable: false),
-                    TenantId = table.Column<long>(type: "varchar(100)", nullable: false),
-                    UserId = table.Column<long>(type: "INTEGER", nullable: true)
+                    BuildingId = table.Column<Guid>(type: "TEXT", nullable: false),
+                    TenantId = table.Column<Guid>(type: "TEXT", nullable: false),
+                    UserId = table.Column<Guid>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Elevators", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Elevators_Building_BuildingId",
+                        name: "FK_Elevators_Buildings_BuildingId",
                         column: x => x.BuildingId,
-                        principalTable: "Building",
+                        principalTable: "Buildings",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -247,30 +235,29 @@ namespace ElevatorManagementAPI.Api.Migrations
                 name: "Visits",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
                     Type = table.Column<string>(type: "varchar(20)", nullable: false),
                     Description = table.Column<string>(type: "varchar(200)", nullable: false),
                     Problem = table.Column<string>(type: "varchar(100)", nullable: false),
-                    IsPassengerStucked = table.Column<bool>(type: "boolean", nullable: false, defaultValueSql: "false"),
+                    IsPassengerStucked = table.Column<bool>(type: "boolean", nullable: false),
                     Status = table.Column<string>(type: "varchar(20)", nullable: false),
-                    ElevatorStatusPre = table.Column<string>(type: "varchar(50)", nullable: false, defaultValueSql: "stopped"),
+                    ElevatorStatusPre = table.Column<string>(type: "varchar(50)", nullable: false),
                     ElevatorStatusPos = table.Column<string>(type: "varchar(50)", nullable: true),
                     CurrentFloor = table.Column<int>(type: "int", nullable: true),
                     ClosedAt = table.Column<DateTime>(type: "datetime", nullable: true),
-                    CreatedAt = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP"),
+                    CreatedAt = table.Column<DateTime>(type: "datetime", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime", nullable: false),
-                    UserId = table.Column<long>(type: "varchar(100)", nullable: false),
-                    BuildingId = table.Column<long>(type: "varchar(100)", nullable: false),
-                    TenantId = table.Column<long>(type: "varchar(100)", nullable: false)
+                    UserId = table.Column<Guid>(type: "TEXT", nullable: false),
+                    BuildingId = table.Column<Guid>(type: "TEXT", nullable: false),
+                    TenantId = table.Column<Guid>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Visits", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Visits_Building_BuildingId",
+                        name: "FK_Visits_Buildings_BuildingId",
                         column: x => x.BuildingId,
-                        principalTable: "Building",
+                        principalTable: "Buildings",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -291,17 +278,16 @@ namespace ElevatorManagementAPI.Api.Migrations
                 name: "Pendencies",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
                     Status = table.Column<string>(type: "varchar(20)", nullable: false),
                     Description = table.Column<string>(type: "varchar(200)", nullable: false),
                     Picture = table.Column<string>(type: "varchar(100)", nullable: true),
                     ClosedAt = table.Column<DateTime>(type: "datetime", nullable: true),
-                    CreatedAt = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP"),
+                    CreatedAt = table.Column<DateTime>(type: "datetime", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime", nullable: true),
-                    UserId = table.Column<long>(type: "varchar(100)", nullable: false),
-                    ElevatorId = table.Column<long>(type: "varchar(100)", nullable: false),
-                    TenantId = table.Column<long>(type: "varchar(100)", nullable: false)
+                    UserId = table.Column<Guid>(type: "TEXT", nullable: false),
+                    ElevatorId = table.Column<Guid>(type: "TEXT", nullable: false),
+                    TenantId = table.Column<Guid>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -330,8 +316,8 @@ namespace ElevatorManagementAPI.Api.Migrations
                 name: "VisitsElevators",
                 columns: table => new
                 {
-                    ElevatorId = table.Column<long>(type: "INTEGER", nullable: false),
-                    VisitId = table.Column<long>(type: "INTEGER", nullable: false)
+                    ElevatorId = table.Column<Guid>(type: "TEXT", nullable: false),
+                    VisitId = table.Column<Guid>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -351,9 +337,10 @@ namespace ElevatorManagementAPI.Api.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Address_BuildingId1",
-                table: "Address",
-                column: "BuildingId1");
+                name: "IX_Addresses_BuildingId",
+                table: "Addresses",
+                column: "BuildingId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_assignees_TenantId",
@@ -361,24 +348,18 @@ namespace ElevatorManagementAPI.Api.Migrations
                 column: "TenantId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Building_AddressId",
-                table: "Building",
-                column: "AddressId",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Building_AssigneeId",
-                table: "Building",
+                name: "IX_Buildings_AssigneeId",
+                table: "Buildings",
                 column: "AssigneeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Building_TenantId",
-                table: "Building",
+                name: "IX_Buildings_TenantId",
+                table: "Buildings",
                 column: "TenantId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Building_UserId",
-                table: "Building",
+                name: "IX_Buildings_UserId",
+                table: "Buildings",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
@@ -453,10 +434,10 @@ namespace ElevatorManagementAPI.Api.Migrations
                 column: "VisitId");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Address_Building_BuildingId1",
-                table: "Address",
-                column: "BuildingId1",
-                principalTable: "Building",
+                name: "FK_Addresses_Buildings_BuildingId",
+                table: "Addresses",
+                column: "BuildingId",
+                principalTable: "Buildings",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
         }
@@ -465,8 +446,8 @@ namespace ElevatorManagementAPI.Api.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Address_Building_BuildingId1",
-                table: "Address");
+                name: "FK_Addresses_Buildings_BuildingId",
+                table: "Addresses");
 
             migrationBuilder.DropTable(
                 name: "Pendencies");
@@ -484,7 +465,7 @@ namespace ElevatorManagementAPI.Api.Migrations
                 name: "Visits");
 
             migrationBuilder.DropTable(
-                name: "Building");
+                name: "Buildings");
 
             migrationBuilder.DropTable(
                 name: "Users");
@@ -496,7 +477,7 @@ namespace ElevatorManagementAPI.Api.Migrations
                 name: "Tenants");
 
             migrationBuilder.DropTable(
-                name: "Address");
+                name: "Addresses");
         }
     }
 }

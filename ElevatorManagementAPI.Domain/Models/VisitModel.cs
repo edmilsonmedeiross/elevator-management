@@ -4,7 +4,7 @@ namespace ElevatorManagementAPI.Domain.Models;
 
 public class VisitModel
 {
-  public long Id { get; set; }
+  public Guid Id { get; set; }
   public VisitType Type { get; set; }
   public required string Description { get; set; }
   public required string Problem { get; set; }
@@ -20,9 +20,9 @@ public class VisitModel
   public DateTime CreatedAt { get; set; } =
     DateTime.UtcNow;
   public DateTime UpdatedAt { get; set; }
-  public long UserId { get; set; }
-  public long BuildingId { get; set; }
-  public long TenantId { get; set; }
+  public Guid UserId { get; set; }
+  public Guid BuildingId { get; set; }
+  public Guid TenantId { get; set; }
 
   [JsonIgnore]
   public virtual required UserModel User { get; set; }

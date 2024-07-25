@@ -33,15 +33,12 @@ namespace ElevatorManagementAPI.Api.Data.Mappings
       builder
         .Property(t => t.IsSubActive)
         .IsRequired()
-        .HasColumnType("boolean")
-        .HasDefaultValueSql("false");
+        .HasColumnType("boolean");
 
       builder
         .Property(t => t.CreatedAt)
         .IsRequired()
-        .HasDefaultValueSql(
-          "CURRENT_TIMESTAMP"
-        );
+        .HasColumnType("datetime");
 
       builder
         .Property(t => t.UpdatedAt)
@@ -49,7 +46,7 @@ namespace ElevatorManagementAPI.Api.Data.Mappings
 
       builder
         .Property(t => t.CustomerId)
-        .HasColumnType("varchar(100)");
+        .HasColumnType("TEXT");
 
       builder
         .Property(t => t.TenantColor)
@@ -62,13 +59,16 @@ namespace ElevatorManagementAPI.Api.Data.Mappings
       builder
         .Property(t => t.AddressId)
         .IsRequired()
-        .HasColumnType("varchar(100)");
+        .HasColumnType("TEXT");
 
       builder
         .HasOne(t => t.Address)
         .WithOne(a => a.Tenant)
         .HasForeignKey<TenantModel>(t =>
           t.AddressId
+        )
+        .OnDelete(
+          DeleteBehavior.Cascade
         );
 
       builder

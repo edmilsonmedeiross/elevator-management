@@ -102,23 +102,21 @@ namespace ElevatorManagementAPI.Api.Data.Mappings
       builder
         .Property(e => e.CreatedAt)
         .IsRequired()
-        .HasDefaultValueSql(
-          "CURRENT_TIMESTAMP"
-        );
+        .HasColumnType("datetime");
 
-      builder.Property(e =>
-        e.UpdatedAt
-      );
+      builder
+        .Property(e => e.UpdatedAt)
+        .HasColumnType("datetime");
 
       builder
         .Property(e => e.BuildingId)
         .IsRequired()
-        .HasColumnType("varchar(100)");
+        .HasColumnType("TEXT");
 
       builder
         .Property(e => e.TenantId)
         .IsRequired()
-        .HasColumnType("varchar(100)");
+        .HasColumnType("TEXT");
 
       builder
         .HasOne(e => e.Building)

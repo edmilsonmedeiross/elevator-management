@@ -55,8 +55,7 @@ namespace ElevatorManagementAPI.Api.Data.Mappings
       builder
         .Property(u => u.IsActive)
         .IsRequired()
-        .HasColumnType("boolean")
-        .HasDefaultValueSql("true");
+        .HasColumnType("boolean");
 
       builder
         .Property(u =>
@@ -67,9 +66,7 @@ namespace ElevatorManagementAPI.Api.Data.Mappings
       builder
         .Property(u => u.CreatedAt)
         .IsRequired()
-        .HasDefaultValueSql(
-          "CURRENT_TIMESTAMP"
-        );
+        .HasColumnType("datetime");
 
       builder
         .Property(u => u.UpdatedAt)
@@ -78,7 +75,7 @@ namespace ElevatorManagementAPI.Api.Data.Mappings
       builder
         .Property(u => u.TenantId)
         .IsRequired()
-        .HasColumnType("varchar(100)");
+        .HasColumnType("TEXT");
 
       builder
         .HasOne(u => u.Tenant)

@@ -11,7 +11,7 @@ namespace ElevatorManagementAPI.Api.Data.Mappings
       EntityTypeBuilder<BuildingModel> builder
     )
     {
-      builder.ToTable("Building");
+      builder.ToTable("Buildings");
 
       builder.HasKey(b => b.Id);
 
@@ -28,42 +28,36 @@ namespace ElevatorManagementAPI.Api.Data.Mappings
       builder
         .Property(b => b.IsActive)
         .IsRequired()
-        .HasColumnType("boolean")
-        .HasDefaultValueSql("true");
+        .HasColumnType("boolean");
 
       builder
         .Property(b => b.CreatedAt)
-        .IsRequired();
+        .IsRequired()
+        .HasColumnType("datetime");
 
-      builder.Property(b =>
-        b.UpdatedAt
-      );
+      builder
+        .Property(b => b.UpdatedAt)
+        .HasColumnType("datetime");
 
       builder
         .Property(b => b.AssigneeId)
         .IsRequired()
-        .HasColumnType("varchar(100)");
+        .HasColumnType("TEXT");
 
       builder
         .Property(b => b.AddressId)
         .IsRequired()
-        .HasColumnType("varchar(100)");
+        .HasColumnType("TEXT");
 
       builder
         .Property(b => b.TenantId)
-        .IsRequired();
+        .IsRequired()
+        .HasColumnType("TEXT");
 
       builder
         .HasOne(b => b.Tenant)
         .WithMany(t => t.Buildings)
         .HasForeignKey(b => b.TenantId);
-
-      builder
-        .HasOne(b => b.Address)
-        .WithOne()
-        .HasForeignKey<BuildingModel>(
-          b => b.AddressId
-        );
 
       builder
         .HasOne(b => b.Assignee)

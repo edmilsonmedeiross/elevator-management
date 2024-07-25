@@ -11,7 +11,7 @@ namespace ElevatorManagementAPI.Api.Data.Mappings
       EntityTypeBuilder<AddressModel> builder
     )
     {
-      builder.ToTable("Address");
+      builder.ToTable("Addresses");
       builder.HasKey(a => a.Id);
       builder
         .Property(a => a.Street)
@@ -37,20 +37,35 @@ namespace ElevatorManagementAPI.Api.Data.Mappings
         .Property(a => a.District)
         .IsRequired()
         .HasColumnType("varchar(100)");
+
+      builder
+        .Property(a => a.CreatedAt)
+        .IsRequired()
+        .HasColumnType("datetime");
+
+      builder
+        .Property(a => a.UpdatedAt)
+        .IsRequired()
+        .HasColumnType("datetime");
+
       builder
         .Property(a => a.BuildingId)
         .IsRequired()
-        .HasColumnType("varchar(100)");
+        .HasColumnType("TEXT");
+
       builder
         .Property(a => a.TenantId)
         .IsRequired()
-        .HasColumnType("varchar(100)");
+        .HasColumnType("TEXT");
 
       builder
         .HasOne(a => a.Tenant)
         .WithOne(t => t.Address)
         .HasForeignKey<AddressModel>(
           a => a.TenantId
+        )
+        .OnDelete(
+          DeleteBehavior.Cascade
         );
 
       builder
@@ -58,6 +73,9 @@ namespace ElevatorManagementAPI.Api.Data.Mappings
         .WithOne(b => b.Address)
         .HasForeignKey<AddressModel>(
           a => a.BuildingId
+        )
+        .OnDelete(
+          DeleteBehavior.Cascade
         );
     }
   }

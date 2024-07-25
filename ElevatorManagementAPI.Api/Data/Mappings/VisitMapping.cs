@@ -36,8 +36,7 @@ namespace ElevatorManagementAPI.Api.Data.Mappings
           v.IsPassengerStucked
         )
         .IsRequired()
-        .HasColumnType("boolean")
-        .HasDefaultValueSql("false");
+        .HasColumnType("boolean");
 
       builder
         .Property(v => v.Status)
@@ -51,8 +50,7 @@ namespace ElevatorManagementAPI.Api.Data.Mappings
         )
         .IsRequired()
         .HasConversion<string>()
-        .HasColumnType("varchar(50)")
-        .HasDefaultValueSql("stopped");
+        .HasColumnType("varchar(50)");
 
       builder
         .Property(v =>
@@ -72,10 +70,7 @@ namespace ElevatorManagementAPI.Api.Data.Mappings
       builder
         .Property(v => v.CreatedAt)
         .IsRequired()
-        .HasColumnType("datetime")
-        .HasDefaultValueSql(
-          "CURRENT_TIMESTAMP"
-        );
+        .HasColumnType("datetime");
 
       builder
         .Property(v => v.UpdatedAt)
@@ -84,17 +79,17 @@ namespace ElevatorManagementAPI.Api.Data.Mappings
       builder
         .Property(v => v.UserId)
         .IsRequired()
-        .HasColumnType("varchar(100)");
+        .HasColumnType("TEXT");
 
       builder
         .Property(v => v.BuildingId)
         .IsRequired()
-        .HasColumnType("varchar(100)");
+        .HasColumnType("TEXT");
 
       builder
         .Property(v => v.TenantId)
         .IsRequired()
-        .HasColumnType("varchar(100)");
+        .HasColumnType("TEXT");
 
       builder
         .HasOne(v => v.User)

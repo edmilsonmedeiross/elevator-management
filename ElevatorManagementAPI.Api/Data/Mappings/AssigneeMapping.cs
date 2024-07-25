@@ -18,31 +18,26 @@ namespace ElevatorManagementAPI.Api.Data.Mappings
       builder
         .Property(a => a.Name)
         .IsRequired()
-        .HasColumnType("varchar(100)")
-        .HasMaxLength(100);
+        .HasColumnType("varchar(100)");
 
       builder
         .Property(a => a.Tel)
         .IsRequired()
-        .HasColumnType("varchar(20)")
-        .HasMaxLength(20);
+        .HasColumnType("varchar(20)");
 
       builder
         .Property(a => a.Email)
         .IsRequired()
-        .HasColumnType("varchar(100)")
-        .HasMaxLength(100);
+        .HasColumnType("varchar(100)");
 
       builder
         .Property(a => a.CreatedAt)
         .IsRequired()
-        .HasDefaultValueSql(
-          "CURRENT_TIMESTAMP"
-        );
+        .HasColumnType("datetime");
 
-      builder.Property(a =>
-        a.UpdatedAt
-      );
+      builder
+        .Property(a => a.UpdatedAt)
+        .HasColumnType("datetime");
 
       builder
         .Property(a => a.TenantId)

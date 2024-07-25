@@ -36,10 +36,7 @@ namespace ElevatorManagementAPI.Api.Data.Mappings
 
       builder
         .Property(p => p.CreatedAt)
-        .HasColumnType("datetime")
-        .HasDefaultValueSql(
-          "CURRENT_TIMESTAMP"
-        );
+        .HasColumnType("datetime");
 
       builder
         .Property(p => p.UpdatedAt)
@@ -48,17 +45,17 @@ namespace ElevatorManagementAPI.Api.Data.Mappings
       builder
         .Property(p => p.UserId)
         .IsRequired()
-        .HasColumnType("varchar(100)");
+        .HasColumnType("TEXT");
 
       builder
         .Property(p => p.ElevatorId)
         .IsRequired()
-        .HasColumnType("varchar(100)");
+        .HasColumnType("TEXT");
 
       builder
         .Property(p => p.TenantId)
         .IsRequired()
-        .HasColumnType("varchar(100)");
+        .HasColumnType("TEXT");
 
       builder
         .HasOne(p => p.User)

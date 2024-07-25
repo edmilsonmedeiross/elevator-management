@@ -42,11 +42,11 @@ namespace ElevatorManagementAPI.Api.Migrations
                     DocumentNumber = table.Column<string>(type: "varchar(20)", nullable: false),
                     IsSubActive = table.Column<bool>(type: "boolean", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime", nullable: true),
                     CustomerId = table.Column<Guid>(type: "TEXT", nullable: true),
                     TenantColor = table.Column<string>(type: "varchar(20)", nullable: true),
                     TenantLogo = table.Column<string>(type: "varchar(100)", nullable: true),
-                    AddressId = table.Column<Guid>(type: "TEXT", nullable: false)
+                    AddressId = table.Column<Guid>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -155,7 +155,7 @@ namespace ElevatorManagementAPI.Api.Migrations
                     AssigneeId = table.Column<Guid>(type: "TEXT", nullable: false),
                     AddressId = table.Column<Guid>(type: "TEXT", nullable: false),
                     TenantId = table.Column<Guid>(type: "TEXT", nullable: false),
-                    UserId = table.Column<Guid>(type: "TEXT", nullable: true)
+                    UserId = table.Column<Guid>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -170,7 +170,8 @@ namespace ElevatorManagementAPI.Api.Migrations
                         name: "FK_Buildings_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Buildings_assignees_AssigneeId",
                         column: x => x.AssigneeId,

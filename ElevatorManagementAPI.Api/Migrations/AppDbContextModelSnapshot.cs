@@ -135,7 +135,7 @@ namespace ElevatorManagementAPI.Api.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime");
 
-                    b.Property<Guid?>("UserId")
+                    b.Property<Guid>("UserId")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -329,7 +329,7 @@ namespace ElevatorManagementAPI.Api.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("AddressId")
+                    b.Property<Guid?>("AddressId")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -359,7 +359,7 @@ namespace ElevatorManagementAPI.Api.Migrations
                     b.Property<string>("TenantLogo")
                         .HasColumnType("varchar(100)");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime");
 
                     b.HasKey("Id");
@@ -548,7 +548,9 @@ namespace ElevatorManagementAPI.Api.Migrations
 
                     b.HasOne("ElevatorManagementAPI.Domain.Models.UserModel", "User")
                         .WithMany("Buildings")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Assignee");
 
@@ -625,8 +627,7 @@ namespace ElevatorManagementAPI.Api.Migrations
                     b.HasOne("ElevatorManagementAPI.Domain.Models.AddressModel", "Address")
                         .WithOne("Tenant")
                         .HasForeignKey("ElevatorManagementAPI.Domain.Models.TenantModel", "AddressId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Address");
                 });

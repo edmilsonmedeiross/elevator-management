@@ -2,25 +2,29 @@ namespace ElevatorManagementAPI.Domain.Models;
 
 public class UserModel
 {
-  public long Id { get; set; }
-  public required string Name { get; set; }
-  public required DocumentType DocumentType { get; set; }
-  public required string DocumentNumber { get; set; }
-  public required string Email { get; set; }
-  public required string Password { get; set; }
-  public required UserRole Role { get; set; }
-  public required string Tel { get; set; }
-  public required bool IsActive { get; set; }
-  public DateTime? PasswordChangedAt { get; set; }
-  public DateTime CreatedAt { get; set; } = DateTime.Now;
-  public DateTime UpdatedAt { get; set; }
-  public required long TenantId { get; set; }
-  public long? InvitedById { get; set; }
-  public UserModel? InvitedBy { get; set; }
+    public Guid Id { get; set; } = Guid.NewGuid();
+    public required string Name { get; set; }
+    public required DocumentType DocumentType { get; set; }
+    public required string DocumentNumber { get; set; }
+    public required string Email { get; set; }
+    public required string Password { get; set; }
+    public required UserRole Role { get; set; }
+    public required string Tel { get; set; }
+    public required bool IsActive { get; set; } = true;
+    public DateTime? PasswordChangedAt { get; set; }
+    public DateTime CreatedAt { get; set; } = DateTime.Now;
+    public DateTime UpdatedAt { get; set; }
+    public required Guid TenantId { get; set; }
+    public virtual required TenantModel Tenant { get; set; }
+    public virtual ICollection<BuildingModel>? Buildings { get; set; } = [];
+    public virtual ICollection<ElevatorModel>? Elevators { get; set; } = [];
+    public virtual ICollection<PendencyModel>? Pendencies { get; set; } = [];
 
-  public required virtual TenantModel Tenant { get; set; }
+    public void SetTenant(TenantModel tenant) => Tenant = tenant;
 
-  public virtual ICollection<BuildingModel>? Buildings { get; set; }
+    public void SetBuildings(ICollection<BuildingModel>? buildings) => Buildings = buildings;
 
-  public virtual UserModel? InvitedUser { get; set; }
+    public void SetElevators(ICollection<ElevatorModel>? elevators) => Elevators = elevators;
+
+    public void SetPendencies(ICollection<PendencyModel>? pendencies) => Pendencies = pendencies;
 }
